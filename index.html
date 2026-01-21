@@ -205,6 +205,92 @@
             opacity: 0.85;
         }
 
+        /* HAMBURGER MENU */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* MOBILE NAV */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: white;
+                border-bottom: 1px solid var(--border);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            nav.open {
+                max-height: 500px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                align-items: flex-start;
+                padding: 1rem 0;
+            }
+
+            nav li {
+                width: 100%;
+                padding: 0 5%;
+                border-bottom: 1px solid var(--border);
+            }
+
+            nav li:last-child {
+                border-bottom: none;
+            }
+
+            nav a {
+                display: block;
+                padding: 0.8rem 0;
+            }
+
+            .dropdown-menu {
+                position: static;
+                background: var(--light);
+                border: none;
+                box-shadow: none;
+                min-width: 100%;
+                margin-top: 0;
+            }
+
+            .dropdown-menu a {
+                padding: 0.6rem 2rem;
+            }
+        }
+
         /* HERO */
         .hero {
             height: 110vh;
@@ -445,29 +531,33 @@
             flex: 1;
         }
 
-        @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: 1fr !important;
-            }
-        }
-
         @media (max-width: 1200px) {
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
             }
 
             .service-card-image {
-                height: 200px;
+                height: 180px;
             }
         }
 
         @media (max-width: 768px) {
             .services-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
             }
 
             .service-card-image {
                 height: 200px;
+            }
+
+            .service-card h3 {
+                font-size: 1rem;
+            }
+
+            .service-card p {
+                font-size: 0.85rem;
             }
         }
 
@@ -707,15 +797,84 @@
             .contact-quick {
                 grid-template-columns: 1fr;
             }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            #booking-section {
+                padding: 2rem 0 !important;
+            }
+
+            #booking-section h2 {
+                font-size: 1.5rem !important;
+            }
+
+            #booking-section .container > div {
+                padding: 1.5rem !important;
+            }
+
+            #bookingForm > div {
+                gap: 0.75rem !important;
+            }
+
+            #bookingForm > div > div {
+                grid-template-columns: 1fr !important;
+            }
+
+            #bookingForm input,
+            #bookingForm select {
+                padding: 0.6rem !important;
+                font-size: 0.85rem !important;
+            }
+
+            #bookingForm .booking-price-submit {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            #bookingForm button[type="submit"] {
+                width: 100%;
+                padding: 0.8rem !important;
+            }
+
+            #bookingForm > div:nth-child(5) {
+                flex-direction: column;
+                gap: 0.8rem !important;
+            }
+
+            #bookingForm > div:nth-child(5) > div {
+                width: 100% !important;
+            }
         }
-    </style>
+
+        /* VIDEOS MOBILE */
+        @media (max-width: 768px) {
+            #videos section > div > div {
+                grid-template-columns: 1fr !important;
+            }
+
+            #videos video {
+                height: 200px !important;
+            }
+
+            #videos .section-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+            </style>
 </head>
 <body>
     <!-- HEADER -->
     <header>
         <div class="nav-wrapper">
             <a href="#" class="logo">VIP RU</a>
-            <nav>
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="mobile-nav">
                 <ul>
                     <li><a href="#" onclick="showHome(); return false;" data-lang-ru="Главная" data-lang-en="Home" data-lang-de="Startseite">Главная</a></li>
                     <li class="dropdown-wrapper">
@@ -1023,7 +1182,7 @@
                                 </div>
             
                                 <!-- Price & Submit -->
-                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; background: #f5f5f5; border-radius: 8px; margin-top: 0.5rem;">
+                                <div class="booking-price-submit" style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; background: #f5f5f5; border-radius: 8px; margin-top: 0.5rem;">
                                     <div>
                                         <div style="font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px;">Итого</div>
                                         <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent); margin-top: 0.3rem;">
@@ -1328,6 +1487,22 @@
     </footer>
 
     <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mobile-nav');
+            const hamburger = document.querySelector('.hamburger');
+            nav.classList.toggle('open');
+            hamburger.classList.toggle('open');
+        }
+
+        // Close mobile menu when link is clicked
+        document.querySelectorAll('#mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-nav').classList.remove('open');
+                document.querySelector('.hamburger').classList.remove('open');
+            });
+        });
+
         // Dropdown Menu
         function toggleDropdown(event) {
             event.stopPropagation();
