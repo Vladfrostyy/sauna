@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Галерея | VIP RU Saunas</title>
+    <meta name="description" content="Галерея VIP RU - Взгляните на наши современные сауны и спа-центр">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.pannellum.org/2.5/pannellum.css">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #607D8B;
+            --light: #f5f5f5;
+            --muted: #888888;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: white;
+            color: var(--primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .btn-header {
+            padding: 0.7rem 1.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .btn-header:hover {
+            opacity: 0.85;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            padding-top: 100px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--muted);
+        }
+
+        /* GALLERY GRID */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 1;
+            cursor: pointer;
+            background: var(--light);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 2001;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transform: translateY(-50%);
+            z-index: 2001;
+            padding: 1rem;
+        }
+
+        .modal-prev {
+            left: 20px;
+        }
+
+        .modal-next {
+            right: 20px;
+        }
+
+        /* 360 GALLERY */
+        .gallery-360-wrapper {
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .gallery-360-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .panorama-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .panorama-label {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+
+        .panorama-hint {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            z-index: 10;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-col a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.85;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .modal-close {
+                top: 10px;
+                right: 20px;
+                font-size: 1.5rem;
+            }
+
+            .modal-nav {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="nav-wrapper">
+            <a href="index.html" class="logo">VIP RU</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="gallery.html">Галерея</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><button class="btn-header" onclick="document.location.href='contacts.html#contact'">Забронировать</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Галерея</h2>
+                    <p>Взгляните на наши современные сауны</p>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openModal(0)">
+                        <img src="./img/sauna/sauna1.png" alt="Sauna">
+                    </div>
+                    <div class="gallery-item" onclick="openModal(1)">
+                        <img src="./img/sauna/sauna2.png" alt="Sauna">
+                    </div>
+                    <div class="gallery-item" onclick="openModal(2)">
+                        <img src="./img/sauna/sauna3.png" alt="Sauna">
+                    </div>
+                    <div class="gallery-item" onclick="openModal(3)">
+                        <img src="./img/sauna/sauna4.png" alt="Sauna">
+                    </div>
+                    <div class="gallery-item" onclick="openModal(4)">
+                        <img src="./img/hammam/hammam1.png" alt="Hammam">
+                    </div>
+                    <div class="gallery-item" onclick="openModal(5)">
+                        <img src="./img/hammam/hammam2.png" alt="Hammam">
+                    </div>
+                    <div class="gallery-item" onclick="openModal(6)">
+                        <img src="./img/massage/massage1.png" alt="Massage">
+                    </div>
+                    <div class="gallery-item" onclick="openModal(7)">
+                        <img src="./img/massage/massage2.png" alt="Massage">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 360 GALLERY -->
+            <div class="gallery-360-wrapper">
+                <div class="section-header">
+                    <h2>Панорама 360°</h2>
+                    <p>Исследуйте наши помещения в интерактивном режиме</p>
+                </div>
+
+                <div class="gallery-360-grid">
+                    <div class="panorama-container">
+                        <div id="panorama-1" style="width: 100%; height: 100%;"></div>
+                        <div class="panorama-label">360°</div>
+                        <div class="panorama-hint">Используйте мышь для вращения</div>
+                    </div>
+                    <div class="panorama-container">
+                        <div id="panorama-2" style="width: 100%; height: 100%;"></div>
+                        <div class="panorama-label">360°</div>
+                        <div class="panorama-hint">Используйте мышь для вращения</div>
+                    </div>
+                    <div class="panorama-container">
+                        <div id="panorama-3" style="width: 100%; height: 100%;"></div>
+                        <div class="panorama-label">360°</div>
+                        <div class="panorama-hint">Используйте мышь для вращения</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <div class="modal-content">
+            <img id="modal-img" src="" alt="">
+        </div>
+        <button class="modal-nav modal-prev" onclick="prevModal()">&#10094;</button>
+        <button class="modal-nav modal-next" onclick="nextModal()">&#10095;</button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-cols">
+            <div class="footer-col">
+                <h4>VIP RU</h4>
+                <p>Westricherstr 62<br>44388 Dortmund</p>
+            </div>
+            <div class="footer-col">
+                <h4>Ссылки</h4>
+                <p><a href="index.html#services">Услуги</a></p>
+                <p><a href="gallery.html">Галерея</a></p>
+                <p><a href="contacts.html">Контакты</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Правовое</h4>
+                <p><a href="impressum.html">Выходные данные</a></p>
+                <p><a href="datenschutz.html">Политика конфиденциальности</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 VIP RU Sauna Dortmund. Все права защищены.
+        </div>
+    </footer>
+
+    <script src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
+    <script>
+        // Initialize 360 Panoramas
+        const panoramas = [
+            {
+                id: 'panorama-1',
+                image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1200&q=80',
+                title: 'Основное помещение'
+            },
+            {
+                id: 'panorama-2',
+                image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80',
+                title: 'Зона отдыха'
+            },
+            {
+                id: 'panorama-3',
+                image: 'https://images.unsplash.com/photo-1597840550367-e50d109b885b?auto=format&fit=crop&w=1200&q=80',
+                title: 'Спа-зона'
+            }
+        ];
+
+        function initPanoramas() {
+            panoramas.forEach(pano => {
+                try {
+                    pannellum.viewer(pano.id, {
+                        type: 'equirectangular',
+                        panorama: pano.image,
+                        width: '100%',
+                        height: '100%',
+                        autoLoad: true,
+                        showControls: true,
+                        mouseZoom: true,
+                        showFullscreenCtrl: true
+                    });
+                } catch (e) {
+                    console.log('Pannellum init error:', e);
+                }
+            });
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', initPanoramas);
+
+        const galleryImages = [
+            './img/sauna/sauna1.png',
+            './img/sauna/sauna2.png',
+            './img/sauna/sauna3.png',
+            './img/sauna/sauna4.png',
+            './img/hammam/hammam1.png',
+            './img/hammam/hammam2.png',
+            './img/massage/massage1.png',
+            './img/massage/massage2.png'
+        ];
+
+        let currentIndex = 0;
+
+        function openModal(index) {
+            currentIndex = index;
+            document.getElementById('modal').classList.add('open');
+            document.getElementById('modal-img').src = galleryImages[currentIndex];
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('open');
+        }
+
+        function nextModal() {
+            currentIndex = (currentIndex + 1) % galleryImages.length;
+            document.getElementById('modal-img').src = galleryImages[currentIndex];
+        }
+
+        function prevModal() {
+            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+            document.getElementById('modal-img').src = galleryImages[currentIndex];
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowRight') nextModal();
+            if (e.key === 'ArrowLeft') prevModal();
+        });
+    </script>
+</body>
+</html>

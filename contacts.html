@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Контакты и Бронирование | VIP RU Saunas</title>
+    <meta name="description" content="Контакты и форма бронирования VIP RU - Забронируйте свой визит в русскую сауну в Дортмунде">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #607D8B;
+            --light: #f5f5f5;
+            --muted: #888888;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: white;
+            color: var(--primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .btn-header {
+            padding: 0.7rem 1.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .btn-header:hover {
+            opacity: 0.85;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            padding-top: 100px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--muted);
+        }
+
+        /* CONTACT WRAPPER */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .quick-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 8px;
+            transition: all 0.3s;
+            margin-bottom: 1rem;
+        }
+
+        .quick-item:hover {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .quick-icon {
+            font-size: 2rem;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .quick-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .quick-item p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* CONTACT FORM */
+        .contact-form-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form-section h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(96, 125, 139, 0.1);
+        }
+
+        .form-button {
+            grid-column: 1 / -1;
+            padding: 1rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .form-button:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        .bold-phone {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-col a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.85;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="nav-wrapper">
+            <a href="index.html" class="logo">VIP RU</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="gallery.html">Галерея</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><button class="btn-header" onclick="document.location.href='contacts.html#contact'">Забронировать</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+        <section id="contact" style="background: var(--light);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Контакты и Бронирование</h2>
+                    <p>Забронируйте свой визит</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <!-- QUICK INFO -->
+                    <div>
+                        <div class="quick-item">
+                            <div class="quick-icon">📍</div>
+                            <div>
+                                <h4>Адрес</h4>
+                                <p>Westricherstr 62<br>44388 Dortmund<br>Lütgendortmund</p>
+                            </div>
+                        </div>
+
+                        <div class="quick-item">
+                            <div class="quick-icon">📱</div>
+                            <div>
+                                <h4>Телефон</h4>
+                                <p>Тел: <span class="bold-phone">0231 58 93 58 55</span><br>WhatsApp: <span class="bold-phone">0170 80 98 695</span></p>
+                            </div>
+                        </div>
+
+                        <div class="quick-item">
+                            <div class="quick-icon">🕐</div>
+                            <div>
+                                <h4>Часы работы</h4>
+                                <p>Пн-Чт: 10:00 - 22:00<br>Пт-Сб: 10:00 - 02:00<br>Вс: 10:00 - 22:00</p>
+                            </div>
+                        </div>
+
+                        <div class="quick-item">
+                            <div class="quick-icon">💬</div>
+                            <div>
+                                <h4>Примечание</h4>
+                                <p>Групповые скидки и корпоративные события возможны в любое время</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CONTACT FORM -->
+                    <div class="contact-form-section">
+                        <h3>Быстрое бронирование</h3>
+                        <form action="#" method="post">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Количество гостей</label>
+                                    <input type="number" class="form-input" min="2" placeholder="напр. 4" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Дата</label>
+                                    <input type="date" class="form-input" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Имя</label>
+                                    <input type="text" class="form-input" placeholder="Ваше имя" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">От</label>
+                                    <input type="time" class="form-input" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Телефон</label>
+                                    <input type="tel" class="form-input" placeholder="Для контакта" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">До</label>
+                                    <input type="time" class="form-input" required>
+                                </div>
+
+                                <div class="form-group" style="grid-column: 1 / -1;">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-input" placeholder="name@example.com">
+                                </div>
+
+                                <div class="form-group" style="grid-column: 1 / -1; margin-top: 0.5rem;">
+                                    <label style="display: flex; align-items: flex-start; font-weight: 500; font-size: 0.85rem; color: var(--primary);">
+                                        <input type="checkbox" required style="margin-right: 0.5rem; margin-top: 0.2rem;">
+                                        Я согласен с <a href="datenschutz.html" style="color: var(--accent); text-decoration: underline;">Политикой конфиденциальности</a>
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="form-button">Отправить запрос</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-cols">
+            <div class="footer-col">
+                <h4>VIP RU</h4>
+                <p>Westricherstr 62<br>44388 Dortmund</p>
+            </div>
+            <div class="footer-col">
+                <h4>Ссылки</h4>
+                <p><a href="index.html#services">Услуги</a></p>
+                <p><a href="gallery.html">Галерея</a></p>
+                <p><a href="contacts.html">Контакты</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Правовое</h4>
+                <p><a href="impressum.html">Выходные данные</a></p>
+                <p><a href="datenschutz.html">Политика конфиденциальности</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 VIP RU Sauna Dortmund. Все права защищены.
+        </div>
+    </footer>
+</body>
+</html>

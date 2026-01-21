@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sauna Booking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="date"],
+        input[type="time"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #d0d0d0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+            background: #fafafa;
+        }
+
+        input[type="date"]:focus,
+        input[type="time"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #3a4a5c;
+            background: white;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .row-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .guests-group {
+            margin-bottom: 24px;
+        }
+
+        .guests-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .guest-input {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .guest-input label {
+            margin: 0;
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 13px;
+            flex: 1;
+            color: #555;
+        }
+
+        .guest-input input {
+            width: 60px;
+            text-align: center;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #3a4a5c;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 14px;
+        }
+
+        .addons {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .addon-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .addon-item input {
+            width: 70px;
+        }
+
+        .addon-item label {
+            margin: 0;
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 13px;
+            color: #555;
+            flex: 1;
+        }
+
+        .price-summary {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 32px 0;
+            text-align: center;
+        }
+
+        .price-label {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .price-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #3a4a5c;
+            letter-spacing: -0.5px;
+        }
+
+        .price-currency {
+            font-size: 18px;
+            color: #888;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 12px;
+            color: #856404;
+            font-size: 13px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .warning.active {
+            display: block;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #3a4a5c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        button:hover {
+            background: #2d3849;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .info {
+            font-size: 12px;
+            color: #999;
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 24px;
+                margin-bottom: 24px;
+            }
+
+            .row,
+            .row-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .price-value {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book a Sauna</h1>
+
+        <form id="bookingForm">
+            <!-- Date & Time -->
+            <div class="row">
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="saunaType">Sauna Type</label>
+                    <select id="saunaType" required>
+                        <option value="">Select type</option>
+                        <option value="standard">Standard</option>
+                        <option value="lux">LUX Sauna</option>
+                        <option value="firewood">Firewood Sauna</option>
+                        <option value="hammam">Hammam</option>
+                        <option value="combined">Russian + Hammam</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="timeStart">Start Time</label>
+                    <input type="time" id="timeStart" required>
+                </div>
+                <div class="form-group">
+                    <label for="timeEnd">End Time</label>
+                    <input type="time" id="timeEnd" required>
+                </div>
+            </div>
+
+            <!-- Guests -->
+            <div class="guests-group">
+                <div class="guests-title">Guests</div>
+                <div class="guest-input">
+                    <label for="adults">Adults (18+)</label>
+                    <input type="number" id="adults" min="0" value="2">
+                </div>
+                <div class="guest-input">
+                    <label for="kids6_12">Children (6-12 years)</label>
+                    <input type="number" id="kids6_12" min="0" value="0">
+                </div>
+                <div class="guest-input">
+                    <label for="kids_under6">Children (< 6 years) - Free</label>
+                    <input type="number" id="kids_under6" min="0" value="0">
+                </div>
+            </div>
+
+            <!-- Add-ons -->
+            <div class="checkbox-group">
+                <input type="checkbox" id="banshchik">
+                <label for="banshchik">Add Attendant (+€12.50 per person)</label>
+            </div>
+
+            <div class="addons">
+                <div class="guests-title">Brooms (Optional)</div>
+                <div class="addon-item">
+                    <label for="birch">Birch Brooms (€9 each)</label>
+                    <input type="number" id="birch" min="0" value="0">
+                </div>
+                <div class="addon-item">
+                    <label for="oak">Oak Brooms (€10 each)</label>
+                    <input type="number" id="oak" min="0" value="0">
+                </div>
+            </div>
+
+            <!-- Price Summary -->
+            <div class="warning" id="warning">
+                ⚠️ Minimum 2 guests required. Price shown for 2 guests.
+            </div>
+
+            <div class="price-summary">
+                <div class="price-label">Total Price</div>
+                <div>
+                    <span class="price-value" id="totalPrice">0</span>
+                    <span class="price-currency">€</span>
+                </div>
+            </div>
+
+            <button type="submit">Book Now</button>
+
+            <div class="info">
+                Min. 2 guests | Children <6 years are free | 50% discount for children 6-12
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Price matrix: prices[people][category]
+        const prices = {
+            2: [25, 30, 40, 40, 55],
+            3: [33, 36, 45, 45, 63],
+            4: [36, 44, 50, 50, 68],
+            5: [40, 50, 55, 55, 75],
+            6: [45, 54, 60, 60, 83],
+            7: [49, 60, 63, 66, 88],
+            8: [52, 64, 68, 70, 92],
+            9: [54, 68, 72, 76, 96],
+            10: [60, 70, 75, 80, 100]
+        };
+
+        const form = document.getElementById('bookingForm');
+        const dateInput = document.getElementById('date');
+        const timeStartInput = document.getElementById('timeStart');
+        const timeEndInput = document.getElementById('timeEnd');
+        const saunaTypeInput = document.getElementById('saunaType');
+        const adultsInput = document.getElementById('adults');
+        const kids6_12Input = document.getElementById('kids6_12');
+        const kids_under6Input = document.getElementById('kids_under6');
+        const banshchikCheckbox = document.getElementById('banshchik');
+        const birchInput = document.getElementById('birch');
+        const oakInput = document.getElementById('oak');
+        const totalPriceEl = document.getElementById('totalPrice');
+        const warningEl = document.getElementById('warning');
+
+        // Set today's date as default
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.value = today;
+        dateInput.min = today;
+
+        // Add event listeners
+        [dateInput, timeStartInput, timeEndInput, saunaTypeInput, adultsInput, kids6_12Input, kids_under6Input, banshchikCheckbox, birchInput, oakInput].forEach(el => {
+            el.addEventListener('change', calculatePrice);
+            if (el.type !== 'checkbox') el.addEventListener('input', calculatePrice);
+        });
+
+        function getDayOfWeek(dateStr) {
+            const date = new Date(dateStr + 'T00:00:00');
+            return date.getDay(); // 0=Sun, 1=Mon, ..., 5=Fri, 6=Sat
+        }
+
+        function getPriceCategory(date, timeStart, saunaType) {
+            // Categories: 0=Weekday, 1=Weekend, 2=LUX, 3=Firewood, 4=Combined
+            
+            if (saunaType === 'lux') return 2;
+            if (saunaType === 'firewood') return 3;
+            if (saunaType === 'hammam') return 3;
+            if (saunaType === 'combined') return 4;
+
+            // Standard sauna: check day and time
+            const day = getDayOfWeek(date);
+            const [hour] = timeStart.split(':').map(Number);
+
+            // Friday: before 16:00 = weekday, after 16:00 = weekend
+            if (day === 5) {
+                return hour < 16 ? 0 : 1;
+            }
+            // Thursday or earlier = weekday
+            if (day === 4) return 0;
+            // Saturday or Sunday = weekend
+            if (day === 6 || day === 0) return 1;
+            // Other days (Mon-Wed) = weekday
+            return 0;
+        }
+
+        function calculatePrice() {
+            const date = dateInput.value;
+            const timeStart = timeStartInput.value;
+            const timeEnd = timeEndInput.value;
+            const saunaType = saunaTypeInput.value;
+            const adults = parseInt(adultsInput.value) || 0;
+            const kids6_12 = parseInt(kids6_12Input.value) || 0;
+            const banshchik = banshchikCheckbox.checked;
+            const birchCount = parseInt(birchInput.value) || 0;
+            const oakCount = parseInt(oakInput.value) || 0;
+
+            let total = 0;
+
+            // Validate inputs
+            if (!date || !timeStart || !timeEnd || !saunaType) {
+                totalPriceEl.textContent = '0';
+                warningEl.classList.remove('active');
+                return;
+            }
+
+            // Calculate hours
+            const [startHour, startMin] = timeStart.split(':').map(Number);
+            const [endHour, endMin] = timeEnd.split(':').map(Number);
+            let hours = (endHour + endMin / 60) - (startHour + startMin / 60);
+            if (hours <= 0) hours = 1;
+
+            // Calculate guest count for pricing (children < 6 don't count)
+            const totalGuests = adults + kids6_12;
+            let pricingGuests = Math.max(2, totalGuests); // Minimum 2 guests
+
+            // Show warning if fewer than 2
+            if (totalGuests < 2) {
+                warningEl.classList.add('active');
+                pricingGuests = 2;
+            } else {
+                warningEl.classList.remove('active');
+            }
+
+            // Cap at 10 guests
+            if (pricingGuests > 10) pricingGuests = 10;
+
+            // Get base price
+            const categoryIndex = getPriceCategory(date, timeStart, saunaType);
+            const basePrice = prices[pricingGuests][categoryIndex];
+
+            // Calculate sauna price with children 6-12 discount
+            let saunaPrice = basePrice * hours;
+
+            // Apply 50% discount for children 6-12
+            if (kids6_12 > 0) {
+                const discountPerChild = (basePrice / totalGuests) * 0.5 * kids6_12 * hours;
+                saunaPrice -= discountPerChild;
+            }
+
+            total += saunaPrice;
+
+            // Add attendant cost
+            if (banshchik) {
+                const attendantPrice = 12.50 * (adults + kids6_12) * hours;
+                total += attendantPrice;
+            }
+
+            // Add brooms
+            total += birchCount * 9 * hours;
+            total += oakCount * 10 * hours;
+
+            totalPriceEl.textContent = total.toFixed(2);
+        }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Booking submitted! (This is a demo)');
+        });
+
+        // Initial calculation
+        calculatePrice();
+    </script>
+</body>
+</html>

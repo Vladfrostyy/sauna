@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Финская Сауна | VIP RU Sauna в Дортмунде</title>
+    <meta name="description" content="Финская сауна в Дортмунде. Сухое тепло 70-100°C, закаливание и здоровье. Традиционная финская сауна. Бронирование: +49 231 58 93 58 55">
+    <meta name="keywords" content="финская сауна, сухая сауна, традиционная сауна, закаливание, Дортмунд">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #607D8B;
+            --light: #f5f5f5;
+            --muted: #888888;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: white;
+            color: var(--primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .btn-header {
+            padding: 0.7rem 1.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .btn-header:hover {
+            opacity: 0.85;
+        }
+
+        /* HERO BANNER */
+        .hero-banner {
+            margin-top: 80px;
+            background: url('./img/sauna/fishhouse1.png');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 0;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+
+        .hero-banner .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-banner h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-banner p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            padding: 4rem 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .content-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin: 2rem 0 1rem 0;
+            font-weight: 700;
+        }
+
+        .content-section p {
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            color: var(--muted);
+            line-height: 1.8;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* FEATURES */
+        .features-box {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .feature-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            position: sticky;
+            top: 120px;
+        }
+
+        .info-card {
+            background: white;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card h3 {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .info-badge {
+            display: inline-block;
+            background: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin: 0.3rem 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        /* BUTTONS */
+        .btn-primary {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            text-decoration: none;
+            margin: 1rem 1rem 1rem 0;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="nav-wrapper">
+            <a href="index.html" class="logo">VIP RU</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="russian-banya.html">Русская Баня</a></li>
+                    <li><a href="hammam.html">Хаммам</a></li>
+                    <li><a href="finnish-sauna.html">Финская Сауна</a></li>
+                    <li><a href="spa-massage.html">СПА и Массаж</a></li>
+                    <li><button class="btn-header" onclick="document.location='index.html#contact'">Забронировать</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <div class="hero-banner">
+        <div class="container">
+            <span class="badge">❄️ Финская Сауна</span>
+            <h1>Классическое Сухое Тепло</h1>
+            <p>Традиционная финская сауна с высокой температурой и низкой влажностью</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <div class="container">
+            <div class="content-grid">
+                <!-- LEFT COLUMN -->
+                <div class="content-section">
+                    <h2>Что такое Финская Сауна?</h2>
+                    <p>
+                        Финская сауна — это классическая сухая сауна с историей более 2000 лет. Она использует высокую температуру (70-100°C) при очень низкой влажности (10-20%), что позволяет организму эффективно потеть и охлаждаться. Это наиболее мягкий и комфортный вид сауны благодаря низкой влажности.
+                    </p>
+
+                    <div class="features-box">
+                        <h3 style="color: var(--accent); margin-top: 0;">Преимущества Финской Сауны</h3>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">🔥</span>
+                                <div>
+                                    <h4>Сухое тепло</h4>
+                                    <p>Легко переносится</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">💧</span>
+                                <div>
+                                    <h4>Детоксикация</h4>
+                                    <p>Интенсивное потоотделение</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">💪</span>
+                                <div>
+                                    <h4>Релаксация мышц</h4>
+                                    <p>После спорта идеальна</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">😴</span>
+                                <div>
+                                    <h4>Улучшение сна</h4>
+                                    <p>От бессонницы</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">❤️</span>
+                                <div>
+                                    <h4>Здоровье сердца</h4>
+                                    <p>Укрепляет систему</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <div>
+                                    <h4>Универсальность</h4>
+                                    <p>Для большинства людей</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>История и Культура Финской Сауны</h2>
+                    <p>
+                        Финская сауна — это священное пространство, неразрывно связанное с культурой и бытом Финляндии. На протяжении столетий сауна была местом не только физического, но и духовного очищения, где люди отдыхали от суеты внешнего мира. Понимание образа жизни финнов невозможно без понимания центральной роли сауны в их жизни.
+                    </p>
+
+                    <p>
+                        Слово "сауна" — одно из немногих финских слов, позаимствованных большинством мировых языков. Это символ Финляндии, неотъемлемая часть национальной культуры. В Финляндии существует примерно 3 миллиона саун на население в 5,5 миллионов человек. Сауны есть повсюду: в квартирах, многоэтажных домах, спортивных центрах, на кораблях, в гостиницах и даже в парламенте страны!
+                    </p>
+
+                    <p>
+                        Посещение сауны для финнов — это не просто гигиеническая процедура, это важный семейный ритуал, который объединяет людей, укрепляет дружеские связи и создает атмосферу праздника. Финны могут проводить в сауне от десяти минут до нескольких часов, превращая это в настоящий праздник.
+                    </p>
+
+                    <h2>Процесс Финской Сауны</h2>
+                    <ul>
+                        <li><strong>Раздевание</strong> — в Финляндии традиционно полное обнажение</li>
+                        <li><strong>Разминка</strong> — первые 5-10 минут для привыкания</li>
+                        <li><strong>Основное парение</strong> — 15-25 минут в горячей камере</li>
+                        <li><strong>Контрастное охлаждение</strong> — прохладный или ледяной душ</li>
+                        <li><strong>Отдых</strong> — 15-30 минут в прохладной комнате</li>
+                        <li><strong>Повторные заходы</strong> — 2-3 цикла парения</li>
+                    </ul>
+
+                    <h2>Традиция Контрастного Закаливания</h2>
+                    <p>
+                        В Финляндии принято чередовать горячую сауну с холодным душем, прыжками в озеро или ледяную воду. Летом финны устраивают праздники, где проводят цикл: нагревание в сауне, прыжок в озеро, отдых и общение с друзьями. Зимой контрастное закаливание еще более экстремально — прогретое в сауне тело окунается в снег или прорубь. Это создает невероятные ощущения и способствует улучшению кровообращения, укреплению иммунитета и дарит заряд бодрости на весь день.
+                    </p>
+
+                    <h2>Правила Посещения Финской Сауны</h2>
+                    <ul>
+                        <li><strong>Святость места</strong> — сауна имеет сакральное значение, здесь очищаются тело и душа</li>
+                        <li><strong>Почтение и уважение</strong> — приглашение в сауну выражает особое расположение и уважение</li>
+                        <li><strong>Натуральность</strong> — финны часто посещают сауну без одежды, это совершенно естественно</li>
+                        <li><strong>Веники</strong> — традиционные березовые или можжевеловые веники усиливают лечебный эффект</li>
+                        <li><strong>Гидратация</strong> — пить как можно больше воды и прохладительных напитков</li>
+                        <li><strong>Отдых и расслабление</strong> — это время для медитации, общения и восстановления</li>
+                    </ul>
+
+                    <h2>Наша Финская Сауна</h2>
+                    <p>
+                        Наша финская сауна спроектирована с использованием качественной древесины и современного оборудования. Мы предлагаем традиционный финский опыт с возможностью контрастного закаливания и полного расслабления.
+                    </p>
+
+                    <h2>Галерея</h2>
+                    <div class="gallery">
+                        <div class="gallery-item">
+                            <img src="./img/sauna/fishhouse1.png" alt="Fish House">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./img/sauna/fishhouse2.png" alt="Fish House">
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <a href="index.html#contact" class="btn-primary">Забронировать Финскую Сауну</a>
+                        <a href="index.html" class="btn-secondary">← На главную</a>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN - SIDEBAR -->
+                <aside class="sidebar">
+                    <div class="info-card">
+                        <h3>⏱️ Информация</h3>
+                        <p><strong>Температура:</strong> 70-100°C</p>
+                        <p><strong>Влажность:</strong> 10-20%</p>
+                        <p><strong>Минимум гостей:</strong> 1 человек</p>
+                        <p><strong>Максимум гостей:</strong> 18 человек</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🎯 Услуги</h3>
+                        <div class="info-badge">Сухая сауна</div>
+                        <div class="info-badge">Закаливание</div>
+                        <div class="info-badge">Контрастный душ</div>
+                        <div class="info-badge">Групповые сеансы</div>
+                        <div class="info-badge">Чаепитие</div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>📞 Контакты</h3>
+                        <p><strong>Телефон:</strong><br>+49 231 58 93 58 55</p>
+                        <p><strong>WhatsApp:</strong><br>+49 170 80 98 695</p>
+                        <p style="margin-top: 1rem; font-size: 0.85rem;">Бронирование доступно ежедневно</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-cols">
+            <div class="footer-col">
+                <h4>VIP RU</h4>
+                <p>Westricherstr 62<br>44388 Dortmund</p>
+            </div>
+            <div class="footer-col">
+                <h4>Ссылки</h4>
+                <p><a href="index.html">Главная</a></p>
+                <p><a href="finnish-sauna.html">Финская Сауна</a></p>
+                <p><a href="spa-massage.html">СПА и Массаж</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Правовое</h4>
+                <p><a href="impressum.html">Выходные данные</a></p>
+                <p><a href="datenschutz.html">Политика конфиденциальности</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 VIP RU Sauna Dortmund. Все права защищены.
+        </div>
+    </footer>
+</body>
+</html>

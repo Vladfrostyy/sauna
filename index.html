@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>VIP RU Saunas | Русская Сауна в Дортмунде</title>
+    <meta name="description" content="VIP RU - Аутентичная русская сауна и баня в Дортмунде. Русская баня, хаммам, финская сауна, спа и массаж. Бронирование по телефону +49 231 58 93 58 55">
+    <meta name="keywords" content="русская сауна Дортмунд, баня, хаммам, финская сауна, спа, массаж, VIP-RU">
+    <meta name="author" content="VIP RU Sauna Dortmund">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Russian">
+    <meta property="og:title" content="VIP RU | Русская Сауна и Баня в Дортмунде">
+    <meta property="og:description" content="Аутентичный опыт русской сауны в центре Дортмунда. Профессиональный спа и массаж.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vip-ru.de/">
+    <meta property="og:image" content="./mainimg.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VIP RU | Русская Сауна и Баня">
+    <meta name="twitter:description" content="Русская сауна, баня, хаммам и спа в Дортмунде">
+    <meta name="twitter:image" content="./mainimg.png">
+    <link rel="canonical" href="https://vip-ru.de/">
+    <link rel="alternate" hreflang="de" href="https://vip-ru.de/">
+    <link rel="alternate" hreflang="ru" href="https://ru.vip-ru.de/">
+    <link rel="shortlink" href="https://vip-ru.de/">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #607D8B;
+            --light: #f5f5f5;
+            --muted: #888888;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: white;
+            color: var(--primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* DROPDOWN MENU */
+        .dropdown-wrapper {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.5rem 0;
+        }
+
+        .dropdown-arrow {
+            margin-left: 0.4rem;
+            font-size: 0.75rem;
+            transition: transform 0.3s;
+        }
+
+        .dropdown-arrow.open {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            min-width: 220px;
+            margin-top: 0.8rem;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .dropdown-menu.open {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--light);
+            color: var(--accent);
+        }
+
+        .dropdown-menu a:not(:last-child) {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .btn-header {
+            padding: 0.7rem 1.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .btn-header:hover {
+            opacity: 0.85;
+        }
+
+        /* HERO */
+        .hero {
+            height: 110vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('./img/massage/massage1.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            text-align: center;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        /* MAIN SECTIONS */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .section-header p {
+            font-size: 1rem;
+            color: var(--muted);
+        }
+
+        /* SERVICES GRID */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+        }
+
+        .service-card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-card-content {
+            padding: 1.2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.05rem;
+            margin: 0.5rem 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            line-height: 1.5;
+            font-size: 0.85rem;
+        }
+
+        .service-icon {
+            display: none;
+        }
+
+        /* NEW SERVICE CARDS */
+        .service-card-new {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .service-card-new:hover {
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+            transform: translateY(-6px);
+        }
+
+        .service-card-new .service-icon {
+            display: block;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2.5rem;
+            z-index: 10;
+            background: rgba(255,255,255,0.9);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .service-card-new .service-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-card-new .service-card-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card-new h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+        }
+
+        .service-card-new > p {
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 1rem 0;
+            flex: 1;
+        }
+
+        .service-features li {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .service-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-align: center;
+            align-self: flex-start;
+        }
+
+        .service-btn:hover {
+            background: var(--primary);
+            transform: translateX(2px);
+        }
+
+        /* MINIMAL SERVICE CARDS */
+        .service-minimal {
+            display: block;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .service-minimal:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+            border-color: var(--accent);
+        }
+
+        .service-min-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .service-min-header h3 {
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-card-image {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card-image {
+                height: 200px;
+            }
+        }
+
+        /* INFO BOXES */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-box {
+            padding: 2rem;
+            background: var(--light);
+            border-radius: 8px;
+        }
+
+        .info-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .info-box p {
+            color: var(--primary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* GALLERY */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* FORM */
+        .booking-form {
+            max-width: 600px;
+            margin: 3rem auto 0;
+            padding: 2rem;
+            background: var(--light);
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.65rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(96, 125, 139, 0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.75rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        /* CONTACT REDESIGN */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+
+        .contact-quick {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .quick-item {
+            padding: 2rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .quick-item:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            border-color: var(--accent);
+        }
+
+        .quick-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .quick-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .quick-item p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .bold-phone {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .contact-form-section {
+            background: white;
+            padding: 1.8rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .contact-form-section h3 {
+            margin-bottom: 1.2rem !important;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-quick {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-quick {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="nav-wrapper">
+            <a href="#" class="logo">VIP RU</a>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showHome(); return false;" data-lang-ru="Главная" data-lang-en="Home" data-lang-de="Startseite">Главная</a></li>
+                    <li class="dropdown-wrapper">
+                        <div class="dropdown-toggle" onclick="toggleDropdown(event)" data-lang-ru="Услуги" data-lang-en="Services" data-lang-de="Dienstleistungen">
+                            Услуги
+                            <span class="dropdown-arrow">▼</span>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu">
+                            <a href="russian-banya.html" class="dropdown-link" data-lang-ru="Русская Баня" data-lang-en="Russian Banya" data-lang-de="Russisches Banja">Русская Баня</a>
+                            <a href="hammam.html" class="dropdown-link" data-lang-ru="Хаммам" data-lang-en="Hammam" data-lang-de="Hamam">Хаммам</a>
+                            <a href="finnish-sauna.html" class="dropdown-link" data-lang-ru="Финская Сауна" data-lang-en="Finnish Sauna" data-lang-de="Finnische Sauna">Финская Сауна</a>
+                            <a href="spa-massage.html" class="dropdown-link" data-lang-ru="СПА и Массаж" data-lang-en="SPA & Massage" data-lang-de="SPA und Massage">СПА и Массаж</a>
+                        </div>
+                    </li>
+                    <li><a href="gallery.html" onclick="closeDropdown()">Галерея</a></li>
+                    <li><a href="#videos" onclick="closeDropdown()">Видео</a></li>
+                    <li><a href="contacts.html" onclick="closeDropdown()">Контакты</a></li>
+                    <li><button class="btn-header" onclick="document.location.href='contacts.html'">Забронировать</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Русская Сауна & Баня</h1>
+            <p>Аутентичный опыт русской сауны в центре Дортмунда</p>
+            <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Забронировать сейчас</button>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" style="background: #fafafa; padding: 6rem 0;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 4rem;">
+                <h2 style="font-size: 2.8rem; margin-bottom: 0.8rem;">Наши Услуги</h2>
+                <p style="font-size: 1.05rem; color: #666; max-width: 500px; margin: 0 auto;">Четыре типа саун и спа-процедур для полного восстановления и оздоровления организма</p>
+            </div>
+
+            <div class="services-grid" style="grid-template-columns: repeat(2, 1fr); gap: 3rem;">
+                <a href="russian-banya.html" class="service-minimal" style="text-decoration: none; color: inherit;">
+                    <img src="./img/sauna/sauna1.png" alt="Русская Баня" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem; display: block;">
+                    <div class="service-min-header">
+                        <h3 style="font-size: 1.6rem; margin: 0; color: var(--primary);">Русская Баня</h3>
+                    </div>
+                    <p style="color: var(--muted); margin: 1.5rem 0; line-height: 1.7; font-size: 0.95rem;">Традиционная баня с деревянными печами, интенсивным теплом 90-100°C и банными вениками. Аутентичный славянский опыт для глубокого расслабления.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;">
+                        <div style="padding: 1rem; background: white; border-radius: 6px; text-align: center;">
+                            <div style="font-size: 1.4rem; color: var(--accent); font-weight: 700;">90-100°C</div>
+                            <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem;">Температура</div>
+                        </div>
+                        <div style="padding: 1rem; background: white; border-radius: 6px; text-align: center;">
+                            <div style="font-size: 1.4rem; color: var(--accent); font-weight: 700;">2-20</div>
+                            <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem;">человек</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="hammam.html" class="service-minimal" style="text-decoration: none; color: inherit;">
+                    <img src="./img/hammam/hammam1.png" alt="Хаммам" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem; display: block;">
+                    <div class="service-min-header">
+                        <h3 style="font-size: 1.6rem; margin: 0; color: var(--primary);">Хаммам</h3>
+                    </div>
+                    <p style="color: var(--muted); margin: 1.5rem 0; line-height: 1.7; font-size: 0.95rem;">Восточная паровая баня с мягким влажным теплом 40-50°C. Идеальна для скрабирования, спа-процедур и полного расслабления организма.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;">
+                        <div style="padding: 1rem; background: white; border-radius: 6px; text-align: center;">
+                            <div style="font-size: 1.4rem; color: var(--accent); font-weight: 700;">40-50°C</div>
+                            <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem;">Температура</div>
+                        </div>
+                        <div style="padding: 1rem; background: white; border-radius: 6px; text-align: center;">
+                            <div style="font-size: 1.4rem; color: var(--accent); font-weight: 700;">1-15</div>
+                            <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem;">человек</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="finnish-sauna.html" class="service-minimal" style="text-decoration: none; color: inherit;">
+                    <img src="./img/sauna/fishhouse1.png" alt="Финская Сауна" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem; display: block;">
+                    <div class="service-min-header">
+                        <h3 style="font-size: 1.6rem; margin: 0; color: var(--primary);">Финская Сауна</h3>
+                    </div>
+                    <p style="color: var(--muted); margin: 1.5rem 0; line-height: 1.7; font-size: 0.95rem;">Классическая сухая сауна с высокой температурой 70-100°C и низкой влажностью. Идеальна для закаливания и контрастного душа.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;">
+                        <div style="padding: 1rem; background: white; border-radius: 6px; text-align: center;">
+                            <div style="font-size: 1.4rem; color: var(--accent); font-weight: 700;">70-100°C</div>
+                            <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem;">Температура</div>
+                        </div>
+                        <div style="padding: 1rem; background: white; border-radius: 6px; text-align: center;">
+                            <div style="font-size: 1.4rem; color: var(--accent); font-weight: 700;">1-18</div>
+                            <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem;">человек</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="spa-massage.html" class="service-minimal" style="text-decoration: none; color: inherit;">
+                    <img src="./img/massage/massage1.png" alt="СПА и Массаж" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem; display: block;">
+                    <div class="service-min-header">
+                        <h3 style="font-size: 1.6rem; margin: 0; color: var(--primary);">СПА и Массаж</h3>
+                    </div>
+                    <p style="color: var(--muted); margin: 1.5rem 0; line-height: 1.7; font-size: 0.95rem;">Профессиональный массаж и спа-процедуры от опытных мастеров. Включает классический, тайский, спортивный массаж и различные спа-услуги.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;">
+                        <div style="padding: 1rem; background: white; border-radius: 6px; text-align: center;">
+                            <div style="font-size: 1.4rem; color: var(--accent); font-weight: 700;">6 видов</div>
+                            <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem;">Массажа</div>
+                        </div>
+                        <div style="padding: 1rem; background: white; border-radius: 6px; text-align: center;">
+                            <div style="font-size: 1.4rem; color: var(--accent); font-weight: 700;">30-90</div>
+                            <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem;">минут</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" style="background: var(--light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Галерея</h2>
+                <p>Взгляните на наши современные сауны</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="./img/sauna/sauna1.png" alt="Sauna">
+                </div>
+                <div class="gallery-item">
+                    <img src="./img/sauna/sauna2.png" alt="Sauna">
+                </div>
+                <div class="gallery-item">
+                    <img src="./img/sauna/sauna3.png" alt="Sauna">
+                </div>
+                <div class="gallery-item">
+                    <img src="./img/sauna/sauna4.png" alt="Sauna">
+                </div>
+                <div class="gallery-item">
+                    <img src="./img/hammam/hammam1.png" alt="Hammam">
+                </div>
+                <div class="gallery-item">
+                    <img src="./img/hammam/hammam2.png" alt="Hammam">
+                </div>
+                <div class="gallery-item">
+                    <img src="./img/massage/massage1.png" alt="Massage">
+                </div>
+                <div class="gallery-item">
+                    <img src="./img/massage/massage2.png" alt="Massage">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section id="videos" style="background: white; padding: 4rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Видеотур</h2>
+                <p>Откройте для себя VIP RU через видео</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <!-- Video 1 -->
+                <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                    <video style="width: 100%; height: 280px; object-fit: cover; background: #000;" controls poster="./img/sauna/sauna1.png">
+                        <source src="./videos/tour-sauna.mp4" type="video/mp4">
+                        <p>Ваш браузер не поддерживает видео. Используйте YouTube ссылку вместо этого.</p>
+                    </video>
+                    <div style="padding: 1.5rem; background: white;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--primary);">Тур по Русской Бане</h3>
+                        <p style="font-size: 0.9rem; color: var(--muted);">Исследуйте нашу аутентичную русскую баню и традиционные процедуры</p>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                    <video style="width: 100%; height: 280px; object-fit: cover; background: #000;" controls poster="./img/hammam/hammam1.png">
+                        <source src="./videos/tour-hammam.mp4" type="video/mp4">
+                        <p>Ваш браузер не поддерживает видео</p>
+                    </video>
+                    <div style="padding: 1.5rem; background: white;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--primary);">Паровая баня Хаммам</h3>
+                        <p style="font-size: 0.9rem; color: var(--muted);">Откройте восточные традиции в атмосфере роскоши</p>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                    <video style="width: 100%; height: 280px; object-fit: cover; background: #000;" controls poster="./img/massage/massage1.png">
+                        <source src="./videos/tour-spa.mp4" type="video/mp4">
+                        <p>Ваш браузер не поддерживает видео</p>
+                    </video>
+                    <div style="padding: 1.5rem; background: white;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--primary);">СПА и Массаж</h3>
+                        <p style="font-size: 0.9rem; color: var(--muted);">Профессиональный спа-центр и релаксирующие процедуры</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="background: var(--light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Контакты и Бронирование</h2>
+                <p>Забронируйте свой визит</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <!-- QUICK INFO -->
+                <div class="contact-quick">
+                    <div class="quick-item">
+                        <div class="quick-icon">📍</div>
+                        <h4>Адрес</h4>
+                        <p>Westricherstr 62<br>44388 Dortmund<br>Lütgendortmund</p>
+                    </div>
+
+                    <div class="quick-item">
+                        <div class="quick-icon">📱</div>
+                        <h4>Телефон</h4>
+                        <p>Тел: <span class="bold-phone">0231 58 93 58 55</span><br>WhatsApp: <span class="bold-phone">0170 80 98 695</span></p>
+                    </div>
+
+                    <div class="quick-item">
+                        <div class="quick-icon">🕐</div>
+                        <h4>Часы работы</h4>
+                        <p>Пн-Чт: 10:00 - 22:00<br>Пт-Сб: 10:00 - 02:00<br>Вс: 10:00 - 22:00</p>
+                    </div>
+
+                    <div class="quick-item">
+                        <div class="quick-icon">💬</div>
+                        <h4>Примечание</h4>
+                        <p>Групповые скидки и корпоративные события возможны в любое время</p>
+                    </div>
+                </div>
+
+                <!-- CONTACT FORM -->
+                <section id="booking-section" style="background: #f9f9f9; padding: 3rem 0;">
+                    <div class="container">
+                        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem; color: var(--primary);">Забронировать Сауну</h2>
+                        <div style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                            <form id="bookingForm" style="display: grid; gap: 1rem;">
+                                <!-- Date & Sauna Type -->
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                    <div>
+                                        <label style="display: block; margin-bottom: 0.4rem; font-size: 0.85rem; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.5px;">Дата</label>
+                                        <input type="date" id="date" required style="width: 100%; padding: 0.7rem; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem; background: #fafafa;">
+                                    </div>
+                                    <div>
+                                        <label style="display: block; margin-bottom: 0.4rem; font-size: 0.85rem; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.5px;">Тип Сауны</label>
+                                        <select id="saunaType" required style="width: 100%; padding: 0.7rem; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem; background: #fafafa;">
+                                            <option value="">Выбрать</option>
+                                            <option value="standard">Стандарт</option>
+                                            <option value="lux">LUX</option>
+                                            <option value="firewood">На дровах</option>
+                                            <option value="hammam">Хаммам</option>
+                                            <option value="combined">Русская + Хаммам</option>
+                                        </select>
+                                    </div>
+                                </div>
+            
+                                <!-- Time -->
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                    <div>
+                                        <label style="display: block; margin-bottom: 0.4rem; font-size: 0.85rem; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.5px;">Начало</label>
+                                        <input type="time" id="timeStart" required style="width: 100%; padding: 0.7rem; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem; background: #fafafa;">
+                                    </div>
+                                    <div>
+                                        <label style="display: block; margin-bottom: 0.4rem; font-size: 0.85rem; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.5px;">Конец</label>
+                                        <input type="time" id="timeEnd" required style="width: 100%; padding: 0.7rem; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem; background: #fafafa;">
+                                    </div>
+                                </div>
+            
+                                <!-- Guests (compact) -->
+                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                                    <div>
+                                        <label style="display: block; margin-bottom: 0.4rem; font-size: 0.75rem; font-weight: 600; color: #555; text-transform: uppercase;">Взрослые</label>
+                                        <input type="number" id="adults" min="0" value="2" style="width: 100%; padding: 0.6rem; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem; text-align: center; background: #fafafa;">
+                                    </div>
+                                    <div>
+                                        <label style="display: block; margin-bottom: 0.4rem; font-size: 0.75rem; font-weight: 600; color: #555; text-transform: uppercase;">Дети 6-12</label>
+                                        <input type="number" id="kids6_12" min="0" value="0" style="width: 100%; padding: 0.6rem; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem; text-align: center; background: #fafafa;">
+                                    </div>
+                                    <div>
+                                        <label style="display: block; margin-bottom: 0.4rem; font-size: 0.75rem; font-weight: 600; color: #555; text-transform: uppercase;">Дети <6</label>
+                                        <input type="number" id="kids_under6" min="0" value="0" style="width: 100%; padding: 0.6rem; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem; text-align: center; background: #fafafa;">
+                                    </div>
+                                </div>
+            
+                                <!-- Add-ons (compact) -->
+                                <div style="display: flex; gap: 1rem; flex-wrap: wrap; padding-top: 0.5rem;">
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; cursor: pointer; color: #555;">
+                                        <input type="checkbox" id="banshchik" style="width: 16px; height: 16px; cursor: pointer;">
+                                        Банщик
+                                    </label>
+                                    <div style="display: flex; align-items: center; gap: 0.3rem;">
+                                        <label style="font-size: 0.85rem; color: #555;">Веники Б.:</label>
+                                        <input type="number" id="birch" min="0" value="0" style="width: 40px; padding: 0.4rem; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem; text-align: center; background: #fafafa;">
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 0.3rem;">
+                                        <label style="font-size: 0.85rem; color: #555;">Дубовые:</label>
+                                        <input type="number" id="oak" min="0" value="0" style="width: 40px; padding: 0.4rem; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem; text-align: center; background: #fafafa;">
+                                    </div>
+                                </div>
+            
+                                <!-- Price & Submit -->
+                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; background: #f5f5f5; border-radius: 8px; margin-top: 0.5rem;">
+                                    <div>
+                                        <div style="font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px;">Итого</div>
+                                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent); margin-top: 0.3rem;">
+                                            <span id="totalPrice">0</span>€
+                                        </div>
+                                    </div>
+                                    <button type="submit" style="padding: 0.9rem 1.8rem; background: var(--accent); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.9rem; transition: all 0.3s;">Забронировать</button>
+                                </div>
+            
+                                <div style="font-size: 0.75rem; color: #999; text-align: center; margin-top: 0.5rem;">
+                                    Мин. 2 гостя | Дети до 6 лет - бесплатно | Скидка 50% для детей 6-12
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- РУССКАЯ БАНЯ -->
+    <div id="russian-banya-page" class="detail-section" style="display: none;">
+        <section style="padding-top: 100px;">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Русская Баня</h2>
+                    
+                    <img src="https://images.unsplash.com/photo-1543489822-c49534f3271f?auto=format&fit=crop&w=800&q=80" alt="Русская Баня" style="width: 100%; border-radius: 8px; margin-bottom: 2rem;">
+
+                    <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Что такое Русская Баня?</h3>
+                    <p style="color: var(--muted); line-height: 1.8; margin-bottom: 1rem;">
+                        Русская баня — это древняя традиция, уходящая корнями в славянскую культуру. Она представляет собой уникальное сочетание интенсивного сухого и влажного тепла, создаваемого дровяной печью. Температура в русской бане может достигать 90-100°C при влажности 40-60%, что создает идеальные условия для глубокого расслабления и очищения организма.
+                    </p>
+
+                    <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Преимущества Русской Бани</h3>
+                    <ul style="color: var(--muted); line-height: 1.8; margin-left: 2rem; margin-bottom: 2rem;">
+                        <li><strong>Улучшение кровообращения</strong> — тепло расширяет кровеносные сосуды</li>
+                        <li><strong>Очищение кожи</strong> — поры открываются и выводят токсины</li>
+                        <li><strong>Расслабление мышц</strong> — тепло избавляет от напряжения</li>
+                        <li><strong>Иммунная система</strong> — закаляет организм и повышает сопротивляемость</li>
+                        <li><strong>Детоксикация</strong> — интенсивное потоотделение выводит шлаки</li>
+                        <li><strong>Психическое здоровье</strong> — снимает стресс и улучшает настроение</li>
+                    </ul>
+
+                    <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Традиция Веников</h3>
+                    <p style="color: var(--muted); line-height: 1.8; margin-bottom: 1rem;">
+                        Настоящая русская баня немыслима без веников — пучков веточек березы, дуба или эвкалипта. Веник используется для мягкого массажа тела, что улучшает кровообращение и доставляет колоссальное удовольствие. Фитонциды, выделяемые деревом, обладают антибактериальными свойствами.
+                    </p>
+
+                    <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Наша Русская Баня</h3>
+                    <p style="color: var(--muted); line-height: 1.8; margin-bottom: 1rem;">
+                        В VIP RU мы предлагаем аутентичный опыт русской бани, построенной по традиционным принципам. Наша баня может вмещать группы от 2 до 20 человек и идеально подходит для корпоративных мероприятий, семейных праздников или личного расслабления.
+                    </p>
+
+                    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" style="margin-top: 2rem;">Забронировать Русскую Баню</button>
+                    <button class="btn-primary" onclick="showHome()" style="margin-top: 2rem; margin-left: 1rem; background: transparent; color: var(--accent); border: 2px solid var(--accent);">Вернуться на главную</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ХАММАМ -->
+    <div id="hammam-page" class="detail-section" style="display: none;">
+        <section style="padding-top: 100px;">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Хаммам (Турецкая Баня)</h2>
+                    
+                    <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80" alt="Хаммам" style="width: 100%; border-radius: 8px; margin-bottom: 2rem;">
+
+                    <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Что такое Хаммам?</h3>
+                    <p style="color: var(--muted); line-height: 1.8; margin-bottom: 1rem;">
+                        Хаммам — это турецкая паровая баня с тысячелетней историей, зародившаяся на Ближнем Востоке. Она характеризуется мягким влажным теплом (40-50°C) при очень высокой влажности (90-100%), что создает более нежный и комфортный опыт по сравнению с русской баней или финской сауной.
+                    </p>
+
+                    <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Характеристики Хаммама</h3>
+                    <ul style="color: var(--muted); line-height: 1.8; margin-left: 2rem; margin-bottom: 2rem;">
+                        <li><strong>Мягкое тепло</strong> — температура 40-50°C комфортна для всех</li>
+                        <li><strong>Высокая влажность</strong> — помогает глубокому очищению кожи</li>
+                        <li><strong>Подготовка кожи</strong> — мягко размягчает ороговевшие клетки</li>
+                        <li><strong>Спа-процедуры</strong> — идеален для скрабирования и масок</li>
+                        <li><strong>Релаксация</strong> — мягкие условия идеальны для медитации</li>
+                        <li><strong>Безопасность</strong> — подходит даже для людей с чувствительной кожей</li>
+                    </ul>
+
+                    <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Услуги в Хаммаме</h3>
+                    <p style="color: var(--muted); line-height: 1.8; margin-bottom: 1rem;">
+                        В нашем хаммаме вы можете насладиться традиционным телесным скрабингом (гассуль), расслабляющим массажем и различными спа-процедурами. Мастера помогут вам получить максимальное удовольствие и пользу.
+                    </p>
+
+                    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" style="margin-top: 2rem;">Забронировать Хаммам</button>
+                    <button class="btn-primary" onclick="showHome()" style="margin-top: 2rem; margin-left: 1rem; background: transparent; color: var(--accent); border: 2px solid var(--accent);">Вернуться на главную</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ФИНСКАЯ САУНА -->
+    <div id="finnish-sauna-page" class="detail-section" style="display: none;">
+        <section style="padding-top: 100px;">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Финская Сауна</h2>
+                    
+                    <img src="https://images.unsplash.com/photo-1577720643272-265e434ff6c2?auto=format&fit=crop&w=800&q=80" alt="Финская Сауна" style="width: 100%; border-radius: 8px; margin-bottom: 2rem;">
+
+                    <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Что такое Финская Сауна?</h3>
+                    <p style="color: var(--muted); line-height: 1.8; margin-bottom: 1rem;">
+                        Финская сауна — это классическая сухая сауна с историей более 2000 лет. Она использует высокую температуру (70-100°C) при очень низкой влажности (10-20%), что позволяет организму эффективно потеть и охлаждаться. Это наиболее мягкий вид сауны для организма по сравнению с русской баней.
+                    </p>
+
+                    <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Преимущества Финской Сауны</h3>
+                    <ul style="color: var(--muted); line-height: 1.8; margin-left: 2rem; margin-bottom: 2rem;">
+                        <li><strong>Сухое тепло</strong> — комфортное и легко переносится</li>
+                        <li><strong>Эффективная детоксикация</strong> — интенсивное потоотделение</li>
+                        <li><strong>Релаксация мышц</strong> — идеально после спорта</li>
+                        <li><strong>Улучшение сна</strong> — помогает при бессоннице</li>
+                        <li><strong>Оздоровление сердца</strong> — регулярное посещение полезно для ССС</li>
+                        <li><strong>Универсальность</strong> — подходит для большинства людей</li>
+                    </ul>
+
+                    <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Традиция Прохлады</h3>
+                    <p style="color: var(--muted); line-height: 1.8; margin-bottom: 1rem;">
+                        В Финляндии принято чередовать горячую сауну с холодным душем или погружением в ледяную воду. Это контрастное закаливание стимулирует иммунитет и дарит невероятное чувство бодрости и энергии.
+                    </p>
+
+                    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" style="margin-top: 2rem;">Забронировать Финскую Сауну</button>
+                    <button class="btn-primary" onclick="showHome()" style="margin-top: 2rem; margin-left: 1rem; background: transparent; color: var(--accent); border: 2px solid var(--accent);">Вернуться на главную</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- СПА И МАССАЖ -->
+    <div id="spa-massage-page" class="detail-section" style="display: none;">
+        <section style="padding-top: 100px;">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">СПА и Профессиональный Массаж</h2>
+                    
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80" alt="СПА и Массаж" style="width: 100%; border-radius: 8px; margin-bottom: 2rem;">
+
+                    <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Наши СПА Услуги</h3>
+                    <p style="color: var(--muted); line-height: 1.8; margin-bottom: 1rem;">
+                        Мы предлагаем полный спектр профессиональных спа-услуг и массажа, которые идеально дополняют ваш сауна-опыт. Наши опытные специалисты помогут вам достичь полного расслабления и восстановления организма.
+                    </p>
+
+                    <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Виды Массажа</h3>
+                    <ul style="color: var(--muted); line-height: 1.8; margin-left: 2rem; margin-bottom: 2rem;">
+                        <li><strong>Классический Массаж</strong> — расслабление мышц, улучшение кровообращения</li>
+                        <li><strong>Лечебный Массаж</strong> — избавление от боли и напряжения</li>
+                        <li><strong>Спортивный Массаж</strong> — восстановление после физических нагрузок</li>
+                        <li><strong>Тайский Массаж</strong> — древняя техника из Таиланда</li>
+                        <li><strong>Горячий Стоун Массаж</strong> — использование нагретых камней</li>
+                        <li><strong>Релаксирующий Массаж</strong> — для стресса и напряжения</li>
+                    </ul>
+
+                    <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">СПА Процедуры</h3>
+                    <ul style="color: var(--muted); line-height: 1.8; margin-left: 2rem; margin-bottom: 2rem;">
+                        <li><strong>Скрабирование Тела</strong> — удаление ороговевших клеток</li>
+                        <li><strong>Обертывания</strong> — питание и увлажнение кожи</li>
+                        <li><strong>Уход за Лицом</strong> — профессиональные маски и сыворотки</li>
+                        <li><strong>Детокс Программы</strong> — очищение организма</li>
+                        <li><strong>Расслабляющие Ванны</strong> — с ароматическими маслами и солью</li>
+                    </ul>
+
+                    <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Преимущества Профессионального Массажа</h3>
+                    <p style="color: var(--muted); line-height: 1.8; margin-bottom: 1rem;">
+                        Профессиональный массаж помогает избавиться от мышечного напряжения, улучшает гибкость, ускоряет восстановление после травм, снимает головные боли и способствует общему оздоровлению организма. Сочетание массажа с пребыванием в сауне дарит максимальный эффект.
+                    </p>
+
+                    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" style="margin-top: 2rem;">Забронировать СПА и Массаж</button>
+                    <button class="btn-primary" onclick="showHome()" style="margin-top: 2rem; margin-left: 1rem; background: transparent; color: var(--accent); border: 2px solid var(--accent);">Вернуться на главную</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ВЫХОДНЫЕ ДАННЫЕ (IMPRESSUM) -->
+    <div id="impressum-page" class="detail-section" style="display: none;">
+        <section style="padding-top: 100px;">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Выходные данные</h2>
+                    
+                    <h3 style="font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem;">Информация о поставщике:</h3>
+                    <p style="line-height: 1.8; color: var(--primary);">
+                        <strong>Название:</strong> VIP RU Sauna Dortmund<br>
+                        <strong>Директор:</strong> [Имя Директора]<br>
+                        <strong>Адрес:</strong> Westricherstr 62, 44388 Dortmund, Lütgendortmund, Германия<br>
+                        <strong>Телефон:</strong> <a href="tel:+492315893558" style="color: var(--accent);">+49 231 58 93 58 55</a><br>
+                        <strong>Email:</strong> <a href="mailto:info@vip-ru.de" style="color: var(--accent);">info@vip-ru.de</a><br>
+                        <strong>Налоговый номер:</strong> DE[XXX XXX XXX]<br>
+                        <strong>Реестровый номер:</strong> [Номер из торгового реестра Дортмунда]
+                    </p>
+
+                    <h3 style="font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem;">Ответственность за содержание:</h3>
+                    <p style="color: var(--muted); line-height: 1.8;">
+                        Несмотря на тщательный контроль содержимого, мы не принимаем на себя ответственность за содержание внешних ссылок. Содержимое связанных страниц лежит в исключительной ответственности их операторов.
+                    </p>
+
+                    <button class="btn-primary" onclick="showHome()" style="margin-top: 2rem;">Вернуться на главную</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ (DATENSCHUTZ) -->
+    <div id="datenschutz-page" class="detail-section" style="display: none;">
+        <section style="padding-top: 100px;">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Политика конфиденциальности</h2>
+                    
+                    <h3 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 1rem;">1. Общие сведения</h3>
+                    <p style="color: var(--muted); line-height: 1.8;">
+                        Защита вашей личной информации очень важна для нас. Настоящая политика конфиденциальности описывает, как мы собираем, используем и защищаем ваши данные в соответствии с Общим регламентом по защите данных (GDPR/DSGVO).
+                    </p>
+
+                    <h3 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 1rem;">2. Сбор и использование данных</h3>
+                    <p style="color: var(--muted); line-height: 1.8;">
+                        Мы собираем личные данные только в следующих случаях:
+                    </p>
+                    <ul style="color: var(--muted); line-height: 1.8; margin-left: 2rem;">
+                        <li>При заполнении формы бронирования (имя, телефон, email, дата и время)</li>
+                        <li>При связи с нами через контактную форму</li>
+                        <li>Технические данные (IP-адрес, информация о браузере)</li>
+                    </ul>
+
+                    <h3 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 1rem;">3. Цель использования данных</h3>
+                    <p style="color: var(--muted); line-height: 1.8;">
+                        Ваши данные используются только для:
+                    </p>
+                    <ul style="color: var(--muted); line-height: 1.8; margin-left: 2rem;">
+                        <li>Обработки вашего запроса на бронирование</li>
+                        <li>Связи с вами по поводу вашего заказа</li>
+                        <li>Улучшения качества нашего сервиса</li>
+                    </ul>
+
+                    <h3 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 1rem;">4. Хранение данных</h3>
+                    <p style="color: var(--muted); line-height: 1.8;">
+                        Ваши личные данные хранятся безопасно и удаляются после выполнения целей обработки, но не позднее чем через 30 дней после окончания бронирования.
+                    </p>
+
+                    <h3 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 1rem;">5. Ваши права</h3>
+                    <p style="color: var(--muted); line-height: 1.8;">
+                        В соответствии с GDPR вы имеете право:
+                    </p>
+                    <ul style="color: var(--muted); line-height: 1.8; margin-left: 2rem;">
+                        <li>На доступ к вашим данным</li>
+                        <li>На исправление неверных данных</li>
+                        <li>На удаление данных</li>
+                        <li>На ограничение обработки</li>
+                        <li>На портативность данных</li>
+                        <li>На возражение против обработки</li>
+                    </ul>
+
+                    <h3 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 1rem;">6. Контакты</h3>
+                    <p style="color: var(--muted); line-height: 1.8;">
+                        Для реализации своих прав или при вопросах о конфиденциальности, свяжитесь с нами:
+                    </p>
+                    <p style="color: var(--primary); line-height: 1.8;">
+                        Email: <a href="mailto:info@vip-ru.de" style="color: var(--accent);">info@vip-ru.de</a><br>
+                        Телефон: <a href="tel:+492315893558" style="color: var(--accent);">+49 231 58 93 58 55</a>
+                    </p>
+
+                    <p style="color: var(--muted); font-size: 0.9rem; margin-top: 2rem;">
+                        Последнее обновление: 2026
+                    </p>
+
+                    <button class="btn-primary" onclick="showHome()" style="margin-top: 2rem;">Вернуться на главную</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- BOOKING FORM -->
+  
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-cols">
+            <div class="footer-col">
+                <h4>VIP RU</h4>
+                <p>Westricherstr 62<br>44388 Dortmund</p>
+            </div>
+            <div class="footer-col">
+                <h4>Ссылки</h4>
+                <p><a href="#services">Услуги</a></p>
+                <p><a href="#gallery">Галерея</a></p>
+                <p><a href="#contact">Контакты</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Правовое</h4>
+                <p><a href="impressum.html">Выходные данные</a></p>
+                <p><a href="datenschutz.html">Политика конфиденциальности</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 VIP RU Sauna Dortmund. Все права защищены.
+        </div>
+    </footer>
+
+    <script>
+        // Dropdown Menu
+        function toggleDropdown(event) {
+            event.stopPropagation();
+            const menu = document.getElementById('dropdown-menu');
+            const arrow = event.currentTarget.querySelector('.dropdown-arrow');
+            
+            menu.classList.toggle('open');
+            arrow.classList.toggle('open');
+        }
+
+        function closeDropdown() {
+            const menu = document.getElementById('dropdown-menu');
+            const arrow = document.querySelector('.dropdown-arrow');
+            menu.classList.remove('open');
+            arrow.classList.remove('open');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.dropdown-wrapper');
+            const menu = document.getElementById('dropdown-menu');
+            const arrow = document.querySelector('.dropdown-arrow');
+            
+            if (!dropdown.contains(event.target)) {
+                menu.classList.remove('open');
+                arrow.classList.remove('open');
+            }
+        });
+
+        // Navigation
+        function hideAllPages() {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('russian-banya-page').style.display = 'none';
+            document.getElementById('hammam-page').style.display = 'none';
+            document.getElementById('finnish-sauna-page').style.display = 'none';
+            document.getElementById('spa-massage-page').style.display = 'none';
+            document.getElementById('impressum-page').style.display = 'none';
+            document.getElementById('datenschutz-page').style.display = 'none';
+        }
+
+        function showSection(section) {
+            console.log('showSection called with:', section);
+            
+            hideAllPages();
+            
+            // Закрываем dropdown меню
+            const menu = document.getElementById('dropdown-menu');
+            const arrow = document.querySelector('.dropdown-arrow');
+            if (menu) menu.classList.remove('open');
+            if (arrow) arrow.classList.remove('open');
+            
+            const sectionMap = {
+                'russian-banya': 'russian-banya-page',
+                'hammam': 'hammam-page',
+                'finnish-sauna': 'finnish-sauna-page',
+                'spa-massage': 'spa-massage-page',
+                'impressum': 'impressum-page',
+                'datenschutz': 'datenschutz-page'
+            };
+            
+            const targetId = sectionMap[section];
+            console.log('Target ID:', targetId);
+            
+            if (targetId) {
+                const element = document.getElementById(targetId);
+                if (element) {
+                    element.style.display = 'block';
+                    console.log('Element displayed:', targetId);
+                    window.scrollTo(0, 0);
+                } else {
+                    console.log('Element not found:', targetId);
+                }
+            } else {
+                console.log('Section not in map:', section);
+            }
+        }
+
+        function showHome() {
+            hideAllPages();
+            
+            // Закрываем dropdown меню
+            const menu = document.getElementById('dropdown-menu');
+            const arrow = document.querySelector('.dropdown-arrow');
+            menu.classList.remove('open');
+            arrow.classList.remove('open');
+            
+            document.getElementById('home-page').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        // Booking Form Logic - Price Matrix
+        // Categories: [Weekday (Mon-Thu, Fri before 16:00), Weekend (Fri after 16:00, Sat-Sun), LUX, Firewood/Hammam, Russian+Hammam]
+        const prices = {
+            2: [25, 30, 40, 40, 55],
+            3: [33, 36, 45, 45, 63],
+            4: [36, 44, 50, 50, 68],
+            5: [40, 50, 55, 55, 75],
+            6: [45, 54, 60, 60, 83],
+            7: [49, 60, 63, 66, 88],
+            8: [52, 64, 68, 70, 92],
+            9: [54, 68, 72, 76, 96],
+            10: [60, 70, 75, 80, 100]
+        };
+
+        const form = document.getElementById('bookingForm');
+        const dateInput = document.getElementById('date');
+        const timeStartInput = document.getElementById('timeStart');
+        const timeEndInput = document.getElementById('timeEnd');
+        const saunaTypeInput = document.getElementById('saunaType');
+        const adultsInput = document.getElementById('adults');
+        const kids6_12Input = document.getElementById('kids6_12');
+        const kids_under6Input = document.getElementById('kids_under6');
+        const banshchikCheckbox = document.getElementById('banshchik');
+        const birchInput = document.getElementById('birch');
+        const oakInput = document.getElementById('oak');
+        const totalPriceEl = document.getElementById('totalPrice');
+
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.value = today;
+        dateInput.min = today;
+
+        [dateInput, timeStartInput, timeEndInput, saunaTypeInput, adultsInput, kids6_12Input, kids_under6Input, banshchikCheckbox, birchInput, oakInput].forEach(el => {
+            el.addEventListener('change', calculatePrice);
+            if (el.type !== 'checkbox') el.addEventListener('input', calculatePrice);
+        });
+
+        function getDayOfWeek(dateStr) {
+            const date = new Date(dateStr + 'T00:00:00');
+            return date.getDay(); // 0=Sun, 1=Mon, ..., 5=Fri, 6=Sat
+        }
+
+        function getPriceCategory(date, timeStart, saunaType) {
+            // If special sauna type selected, return its category (ignores date/time)
+            if (saunaType === 'lux') return 2;       // LUX
+            if (saunaType === 'firewood') return 3;   // Firewood
+            if (saunaType === 'hammam') return 3;     // Hammam
+            if (saunaType === 'combined') return 4;   // Russian + Hammam
+
+            // Standard sauna: check date and time
+            const day = getDayOfWeek(date);
+            const [hour] = timeStart.split(':').map(Number);
+
+            // Friday special logic
+            if (day === 5) {
+                return hour < 16 ? 0 : 1; // Before 16:00 = weekday, after = weekend
+            }
+            // Thursday or earlier (Mon-Thu)
+            if (day <= 4) return 0; // Weekday
+            // Saturday or Sunday
+            if (day === 6 || day === 0) return 1; // Weekend
+
+            return 0;
+        }
+
+        function calculatePrice() {
+            const date = dateInput.value;
+            const timeStart = timeStartInput.value;
+            const timeEnd = timeEndInput.value;
+            const saunaType = saunaTypeInput.value;
+            const adults = parseInt(adultsInput.value) || 0;
+            const kids6_12 = parseInt(kids6_12Input.value) || 0;
+            const kids_under6 = parseInt(kids_under6Input.value) || 0;
+            const banshchik = banshchikCheckbox.checked;
+            const birchCount = parseInt(birchInput.value) || 0;
+            const oakCount = parseInt(oakInput.value) || 0;
+
+            let total = 0;
+
+            // Validate required fields
+            if (!date || !timeStart || !timeEnd || !saunaType) {
+                totalPriceEl.textContent = '0';
+                return;
+            }
+
+            // Calculate hours duration
+            const [startHour, startMin] = timeStart.split(':').map(Number);
+            const [endHour, endMin] = timeEnd.split(':').map(Number);
+            let hours = (endHour + endMin / 60) - (startHour + startMin / 60);
+            if (hours <= 0) hours = 1;
+
+            // === SAUNA PRICE CALCULATION ===
+            // Get price category
+            const categoryIndex = getPriceCategory(date, timeStart, saunaType);
+
+            // Get price for 1 adult from table (using 2-person minimum for table lookup)
+            const adultPricePerHour = prices[2][categoryIndex];
+
+            // Calculate sauna cost:
+            // - Each adult pays full price
+            // - Each kid 6-12 pays 50% of adult price
+            // - Kids <6 are free
+            let saunaTotalPrice = 0;
+            saunaTotalPrice += adults * adultPricePerHour * hours;              // Adults pay full price
+            saunaTotalPrice += kids6_12 * (adultPricePerHour * 0.5) * hours;   // Kids 6-12 pay 50%
+
+            total += saunaTotalPrice;
+
+            // === ADD-ONS ===
+            // Attendant (Банщик): €12.50 per person per hour (only for adults and kids 6-12)
+            if (banshchik) {
+                const attendantPrice = 12.50 * (adults + kids6_12) * hours;
+                total += attendantPrice;
+            }
+
+            // Brooms: Birch (€9/piece/hr) and Oak (€10/piece/hr)
+            total += birchCount * 9 * hours;
+            total += oakCount * 10 * hours;
+
+            // Display total
+            totalPriceEl.textContent = total.toFixed(2);
+        }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Спасибо за резервирование! Мы свяжемся с вами в ближайшее время.');
+        });
+
+        calculatePrice();
+    </script>
+</body>
+</html>
